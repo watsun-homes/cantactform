@@ -1,0 +1,693 @@
+@charset "utf-8";
+/*
+theme Name:watsunblog.com
+Author: watsunblog
+Description: original theme
+version： 1.2.0
+*/
+
+body {
+  font-family: '小塚ゴシック Pr6N','Times New Roman','メイリオ', 'Meiryo', 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'Noto Sans Japanese', Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  color: #333;  /*文字色*/
+  background-color: #f7f6f5;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+iframe{
+    width:100%;
+    max-width: 100%;
+}
+.clear:after{
+    display: block;
+    clear: both;
+    content: "";
+}
+
+/*コンテンツのサイズを指定*/
+  .container{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 960px) {
+.container{
+    
+    }
+  /*コンテンツとサイドバーを横に並べる*/
+  .container:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+  .contents {
+    
+    
+  }
+  #sidebar {
+    
+}
+  }
+@media (max-width: 960px) {
+.container{
+        padding: 0;
+    }
+.contents {
+    
+  }
+
+}
+
+ 
+
+
+
+
+
+
+
+/*-------ヘッダー隠しメニュー-------*/
+header {
+  padding:0px;
+}
+
+#nav-drawer {
+  height: 80px;
+  padding: 10px;
+  margin: 0;
+  background: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-title {
+    text-align: center;
+    max-width: 50%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    margin: auto 40px;
+}
+ 
+.site-title h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0px 0;
+}
+
+.site-title h1 a {
+  text-decoration: none;
+  color: #24a2b3;
+}
+
+@media(max-width: 960px) {
+    
+    .site-title h1{
+        font-size: 24px;
+    }
+
+}
+
+ 
+
+
+/*-------ハンバーガーメニュー-------*/
+
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+@media(max-width: 1024px) {
+/*アイコンのスペース*/
+#nav-open {
+  position: absolute;
+  width: 30px;
+  height: 22px;
+  right: 0;
+  margin: auto 20px;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: #24a2b3;
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+  display: none;/*はじめは隠しておく*/
+  position: fixed;
+  z-index: 99;
+  top: 0;/*全体に広がるように*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  width: 70%;/*右側に隙間を作る（閉じるカバーを表示）*/
+  max-width: 330px;
+  height: 100%;
+  background: #1592E6;
+  transition: .3s ease-in-out;
+  -webkit-transform: translateX(105%);
+  transform: translateX(105%);
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+  display: block;/*カバーを表示*/
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+    
+}
+
+/*-------ハンバーガーメニュー終わり-------*/
+
+
+/*メニューリスト*/
+#nav-content{
+    position: absolute;
+    right: 0;
+    height: 80px;
+}
+#nav-content h2{
+    text-align: center;
+    color: #fff;
+}
+
+#nav-content:after{
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header-nav{
+    float: left;
+    height: 80px;
+}
+
+
+.header-nav ul {
+  list-style: none;
+  float: left;
+}
+
+.header-nav ul:after{
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.header-nav li{
+    float: left;
+}
+
+.header-nav li a {
+  display: block;
+  padding: 15px 39px 0 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.header-nav li a:before {
+  content: "\f0da";
+  font-family: 'Font Awesome 5 Free';
+  color: #fff;
+  font-size: 0.9em;
+  padding-right: 3px;
+}
+
+.header-nav li a:hover {
+  opacity: 0.5;
+  color: #000;
+}
+
+.shop{
+    font-size: 15px;
+    line-height: 80px;
+    float:left;
+    color: #fff;
+    background-color: #24a2b3;
+    height: 80px;
+    padding: 0px 26px;
+}
+
+.contact{
+    font-size: 15px;
+    line-height: 80px;
+    float: left;
+    color: #fff;
+    background-color: #aa8f7b;
+    height: 80px;
+    padding: 0px 26px;
+}
+
+.shop .fas,.contact .far{
+    padding-right: 13px;
+}
+
+/*-------ヘッダーメニューレスポンシブ-------*/
+@media(max-width: 1024px){
+    
+    #nav-drawer{
+        position: static;
+    }
+    
+    #nav-content{
+    height: 100%;
+    position: fixed;
+    padding-top: 60px;
+    background-color: #fff;
+}
+    
+    .header-nav{
+    height: auto;
+    float: none;
+}
+    
+    .header-nav ul{
+        float: none;
+    }
+    
+    .header-nav li{
+        float: none;
+    }
+    
+    .shop{
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .contact{
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .header-nav li a:before {
+        color: #24a2b3;
+}
+    
+}
+
+
+/*タイトル*/
+.title{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+.mintitle{
+    font-size: 15px;
+    color: #aa8f7b;
+    text-align: center;
+    font-weight: bold;
+}
+.btn{
+    width: auto;
+    height: 53px;
+    display: inline-block;
+    padding: 0px 54px;
+    font-weight: bold;
+    font-size: 15px;
+    border: solid 1px #000;
+    margin: 0 auto;
+    line-height: 53px;
+}
+
+.center{
+    text-align: center;
+}
+
+@media(max-width:960px){
+.res-center{
+    text-align: center;
+}
+}
+
+
+
+/*-------フォーム-------*/
+.form,.confirm-form{
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px 20px;
+    background-color: #e8d2bc;
+}
+
+.form div{
+    margin: 20px 0;
+}
+
+.form div label{
+    padding-right: 10px;
+}
+
+.form div input{
+    border: 2px solid #24a2b3;
+    padding: 10px 20px;
+}
+
+.form div select{
+    padding: 10px 20px;
+    border: 2px solid #24a2b3;
+}
+
+.form div  .textarea{
+    padding: 10px 20px;
+    border: 2px solid #24a2b3;
+}
+
+.form div label .span{
+    padding-left: 6px;
+    color: #24a2b3;
+    font-weight: bold;
+}
+
+.confirm-btn,.back-btn,.sent-btn{
+    padding: 5px 10px;
+    margin: 0 0 0 20px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #24a2b3;
+    border: 2px solid #24a2b3;
+    transition: .3s ease-in-out;
+}
+
+.confirm-btn:hover{
+    
+}
+
+.confirm-btn:active{
+    box-shadow: none;
+}
+
+
+
+
+/*-------記事-------*/
+.kiji{
+    padding: 10px 30px;
+}
+
+/*-------採用情報-------*/
+.recruit{
+    color: #fff;
+    padding: 70px 20px 0 20px;
+    width: 100%;
+    height: 430px;
+    background-image: url(images/footback.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+}
+
+.recruit .mintitle{
+    color: #fff;
+}
+
+.recruit .conts{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.recruit .btn{
+    border: solid 2px #fff;
+}
+
+
+
+/*-------フッター-------*/
+footer:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.footer-inner{
+    color: #fff;
+    background-color: #292929;
+    padding: 70px 0 33px 110px;
+    position: relative;
+}
+
+.footer-inner:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.footer-inner .title{
+    text-align: left;
+    color: #fff;
+}
+
+.footer-inner .mintitle{
+    text-align: left;
+    color: #fff;
+}
+
+.footer-flex{
+    display: block;
+    position: relative;
+}
+
+.footer-flex:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.footer-flex .title{
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.footer-flex .tel{
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.footer-flex .info{
+    float: left;
+}
+
+.footer-nav-area{
+    margin-right: 110px;
+    margin: 0 110px 0 auto;
+    width: 450px;
+    display: block;
+}
+
+.footer-nav-area:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.footer-nav-area ul{
+    list-style: none;
+    margin-top: 0;
+}
+
+.footer-nav-area ul li{
+    display: block;
+    padding: 10px 0;
+}
+
+.menu-item-38{
+    float: left;
+    margin-right: 100px;
+}
+
+.menu-item-16{
+    float: left;
+}
+
+
+.footer-nav-area a{
+    color: #fff;
+}
+
+.footer-inner .clear{
+    position: relative;
+}
+
+.copyright,.privacy{
+    float: left;
+}
+
+.privacy{
+    position: absolute;
+    right: 0;
+    margin-right: 110px;
+}
+
+
+/*-------ストアレスポンシブ-------*/
+@media(max-width:960px){
+    
+    .footer-inner{
+        padding: 20px 0;
+    }
+    
+    .footer-flex{
+        display: block;
+    }
+    
+    .footer-inner .info{
+        text-align: center;
+        float: none;
+    }
+    
+    .footer-inner .title{
+        text-align: center;
+    }
+    
+    .footer-inner .mintitle{
+        text-align: center;
+    }
+    
+    .footer-nav-area{
+        position: static;
+        margin: 0;
+        float: none;
+        width: auto;
+    }
+    
+    .footer-nav-area ul{
+        margin: 20px 0 0 0;
+        padding: 0;
+        border-top: 1px solid #fff;
+    }
+    
+    .footer-nav-area ul li{
+        border-bottom: 1px solid #fff;
+        position: relative;
+    }
+    
+    .footer-nav-area ul li a{
+        padding: 0 20px;
+    }
+    
+    .footer-nav-area ul li a:after{
+        content: "⇀";
+        position: absolute;
+        right: 0;
+        font-size: 32px;
+        line-height: 32px;
+        padding-right: 20px;
+    }
+    
+    .footer-nav-area ul .menu-item-has-children{
+        border: none;
+        padding-bottom: 0;
+    }
+    
+    .footer-nav-area ul .menu-item-has-children a:after{
+        content: "_";
+        line-height: 0;
+    }
+    
+    .footer-nav-area .menu-item-has-children .sub-menu{
+        margin: 20px 0 0;
+        border-bottom: 1px solid #fff;
+        border-top: none;
+    }
+    
+    .footer-nav-area .menu-item-has-children .sub-menu li{
+        border: none;
+    }
+    
+    .footer-nav-area .menu-item-has-children .sub-menu li a:after{
+        content: "";
+    }
+    
+    .menu-item-38{
+        float: none;
+        margin: 0;
+        border: none;
+    }
+    
+    .menu-item-16{
+        float: none;
+    }
+    
+    .footer-inner .clear{
+    text-align: center;
+}
+
+.copyright,.privacy{
+    float: none;
+}
+    
+    .privacy{
+        position: static;
+        margin: 0;
+    }
+    
+    
+}
+
+
+
+
+
